@@ -10,11 +10,13 @@ import {
 import {COLOR} from '../../Constants/Colors';
 import CustomButton from '../../Components/CustomButton';
 import {windowWidth} from '../../Constants/Dimensions';
+import {useNavigation} from '@react-navigation/native';
 
 const {height} = Dimensions.get('window');
 const {width} = Dimensions.get('window');
 
 const OnBoarding = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Image
@@ -39,11 +41,10 @@ const OnBoarding = () => {
         </Text>
         <CustomButton
           title="Let's get started!"
-          onPress={() => console.log('Join pressed')}
+          onPress={() => {
+            navigation.navigate('Login');
+          }}
         />
-        {/* <Text style={styles.footerText}>
-          Not having account? <Text style={styles.linkText}>Create One</Text>
-        </Text> */}
       </View>
     </View>
   );

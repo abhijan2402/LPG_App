@@ -315,6 +315,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     marginHorizontal: 10,
+    marginBottom: 40,
   },
   label: {
     fontSize: 15,

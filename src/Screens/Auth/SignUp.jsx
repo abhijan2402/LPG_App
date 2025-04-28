@@ -17,7 +17,7 @@ import Input from '../../Components/Input';
 const {height} = Dimensions.get('window');
 const {width} = Dimensions.get('window');
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   const animationRef = useRef(null);
   const [email, setEmail] = useState(null);
   useEffect(() => {
@@ -61,12 +61,21 @@ const SignUp = () => {
           />
 
           <CustomButton
-            title="Create Account"
-            onPress={() => console.log('Join pressed')}
+            title="Create"
+            onPress={() => {
+              navigation.navigate('Home');
+            }}
             style={{marginTop: 15}}
           />
           <Text style={styles.footerText}>
-            Already have an account? <Text style={styles.linkText}>Login</Text>
+            Already having an account?{' '}
+            <TouchableOpacity
+              style={{marginTop: 7}}
+              onPress={() => {
+                navigation.navigate('Login');
+              }}>
+              <Text style={styles.linkText}>Login</Text>
+            </TouchableOpacity>
           </Text>
         </View>
       </ScrollView>
@@ -115,6 +124,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#333',
     alignSelf: 'center',
+    marginBottom: 20,
   },
   linkText: {
     color: COLOR.royalBlue,
